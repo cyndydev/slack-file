@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <header class="header">
+    <a href="#" class="logo"><span>Sl</span>ack</a>
+
+    <nav class="navbar">
+      <a href="#" class="hideOnMobile" class="active">Home</a>
+      <a href="#" class="hideOnMobile">Service</a>
+      <a href="#" class="hideOnMobile">Experience</a>
+      <a href="#"class="hideOnMobile">portfolio</a>
+      <a href="#"class="hideOnMobile">project</a>
+    </nav>
+
+    <a href="#" class="hideOnMobile" id="contact">Contact Me</a>
+
+    <div class="day"></div>
+  
+    <div class="time"></div>
+    
+    <div class="menu-button" onclick="showSide()">
+      <a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960" width="26px" fill="#e8eaed"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a>
+    </div>
+   
+  </header>
+
+  <div class="side">
+    <div onclick="hideSide()">
+      <a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960" width="26px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a>
+    </div>
+
+    <a href="#" class="logo"><span>Sl</span>ack</a>
+
+    <nav class="sidebar">
+      <a href="#" class="active">Home</a>
+      <a href="#">Service</a>
+      <a href="#">Experience</a>
+      <a href="#">portfolio</a>
+      <a href="#">project</a>
+    </nav>
+
+    <a href="#" id="contact">Contact Me</a>
+
+  </div>
+  
+
+  <section class="home">
+    <div class="home-content">
+      <h4>Hi</h4>
+
+      <h1>I'm <span>Cyndy <br></span>a Frontend Developer</h1>
+
+      <p>My goal is to build responsive and accessible interfaces. <br> Mastering advanced frontend technologies. <br> Continuously improving skills and knowledge. <br> Building a personal project.</p>
+
+      <button class="btn-1">
+        <a href="mailto:remmycyndy15@gmail.com ">remmycyndy15@gmail.com</a>
+        <a href="mailto:http://scrapeanyweb.site/">scrapeanywebLink</a>
+       <a href= "mailto:http://keyword.dog/">keywordLink</a>
+       <a href="mailto:http://hng.techlearn">hngLink</a>
+      </button>
+    </div>
+
+    <div class="img-box">
+      <img src="asset/image.jpg" alt="photo" >
+    </div>
+  </section>
+  
+
+  <script>
+    function showSide() {
+      const side = document.querySelector('.side')
+      side.style.display = 'flex'
+    }
+    function hideSide() {
+      const side = document.querySelector('.side')
+      side.style.display = 'none'
+    }
+    
+    document.addEventListener("DOMContentLoaded", () => {
+  function loadTime() {
+    const date = new Date();
+    const hours = String(date.getHours()).padStart(2, "0");
+    const minutes = String(date.getMinutes()).padStart(2, "0");
+    const seconds = date.getSeconds();
+    const day = date.getDate();
+
+    return ` ${hours}: ${minutes}: ${seconds}`;
+  }
+  function getDayOfWeek() {
+    const days = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+    const date = new Date();
+    // return days[date.getDay()];
+    const day = date.getDay();
+    const dayy = days[day];
+    return dayy;
+  }
+  const day = getDayOfWeek();
+  console.log(day);
+
+    setInterval(() => {
+       document.querySelector(".day").textContent = `Day: ${day}`
+        document.querySelector(".time").innerHTML = `Time: ${loadTime()}`
+        }, 1000);
+    });
+  </script>
+</body>
+</html>
